@@ -9,17 +9,15 @@ import { RootState } from './redux/store';
 const App: React.FC = () => {
   const [city, setCity] = useState('');
   const weatherData: Weather | null = useSelector((state: RootState) => state.weather.data);
-const loading: boolean = useSelector((state: RootState) => state.weather.loading);
-const error: string | null = useSelector((state: RootState) => state.weather.error);
+  const loading: boolean = useSelector((state: RootState) => state.weather.loading);
+  const error: string | null = useSelector((state: RootState) => state.weather.error);
   const dispatch = useDispatch();
 
   const handleFetchWeather = async () => {
     if (city) {
-     
         await dispatch(fetchWeather(city) as any); 
         setCity('');
      {
-        
       }
     }
   };
